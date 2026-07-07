@@ -18,8 +18,28 @@ function el(tag, opts = {}, children = []) {
   return node;
 }
 
+function typeText(target, text, speed = 18) {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    target.textContent = text;
+    return;
+  }
+  target.textContent = '';
+  target.classList.add('typing');
+  let i = 0;
+  (function tick() {
+    if (i <= text.length) {
+      target.textContent = text.slice(0, i);
+      i++;
+      setTimeout(tick, speed);
+    } else {
+      target.classList.remove('typing');
+    }
+  })();
+}
+
 function renderAbout(about) {
-  document.getElementById('hero-tagline').textContent = about.tagline;
+  document.getElementById('hero-eyebrow').textContent = about.title;
+  typeText(document.getElementById('hero-tagline'), about.tagline);
 
   const container = document.getElementById('about-content');
   about.bio.forEach(paragraph => {
@@ -111,16 +131,16 @@ function renderSkills(groups) {
 function renderContact(contact) {
   const container = document.getElementById('contact-content');
   container.appendChild(el('div', { className: 'contact-item' }, [
-    el('div', { className: 'contact-label', text: 'Email' }),
-    el('a', { className: 'contact-value', href: `mailto:${contact.email}`, text: contact.email })
+    el('div', { className: 'contact-label', text: 'Location' }),
+    el('div', { className: 'contact-value', text: contact.location })
   ]));
   container.appendChild(el('div', { className: 'contact-item' }, [
     el('div', { className: 'contact-label', text: 'Phone' }),
     el('div', { className: 'contact-value', text: contact.phone })
   ]));
   container.appendChild(el('div', { className: 'contact-item' }, [
-    el('div', { className: 'contact-label', text: 'Location' }),
-    el('div', { className: 'contact-value', text: contact.location })
+    el('div', { className: 'contact-label', text: 'Email' }),
+    el('a', { className: 'contact-value', href: `mailto:${contact.email}`, text: contact.email })
   ]));
   container.appendChild(el('div', { className: 'contact-item' }, [
     el('div', { className: 'contact-label', text: 'LinkedIn' }),

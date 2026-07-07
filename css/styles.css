@@ -2,21 +2,21 @@
    Design tokens — edit these to re-theme the entire site
    ============================================================ */
 :root {
-  /* Colors */
-  --color-bg: #f4f5f7;
-  --color-surface: #ffffff;
-  --color-surface-alt: #eceff2;
-  --color-border: #d8dce1;
-  --color-text: #1c2126;
-  --color-text-muted: #5b6570;
+  /* Colors — dark theme */
+  --color-bg: #0d1117;
+  --color-surface: #161b22;
+  --color-surface-alt: #0a0e13;
+  --color-border: #2d3641;
+  --color-text: #e6edf3;
+  --color-text-muted: #9aa7b5;
 
-  --color-header-bg: #12181f;
-  --color-header-text: #f4f5f7;
-  --color-header-text-muted: #a7b0ba;
+  --color-header-bg: #05070a;
+  --color-header-text: #ffffff;
+  --color-header-text-muted: #8b98a5;
 
-  --color-accent: #2b6cb0;       /* steel blue — primary accent */
-  --color-accent-dark: #1f4e80;
-  --color-accent-2: #c76a24;     /* muted safety orange — secondary accent */
+  --color-accent: #3b82f6;       /* blue — primary accent */
+  --color-accent-light: #60a5fa; /* lighter blue — text/gradient use on dark surfaces */
+  --color-accent-2: #22c55e;     /* green — secondary accent */
 
   /* Typography */
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -36,8 +36,8 @@
   --max-width: 1100px;
   --radius-sm: 4px;
   --radius-md: 8px;
-  --shadow-sm: 0 1px 3px rgba(18, 24, 31, 0.08);
-  --shadow-md: 0 4px 14px rgba(18, 24, 31, 0.10);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.45);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.55);
 }
 
 /* ============================================================
@@ -94,11 +94,10 @@ ul { list-style: none; }
 }
 
 .site-name {
+  font-family: var(--font-sans);
   color: var(--color-header-text);
   font-weight: 700;
   font-size: 1.15rem;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
 }
 .site-name:hover { text-decoration: none; color: var(--color-header-text); }
 
@@ -109,11 +108,25 @@ ul { list-style: none; }
 }
 
 .site-nav a {
+  position: relative;
   color: var(--color-header-text-muted);
   font-size: 0.92rem;
   font-weight: 600;
 }
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  background: var(--color-accent-2);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
 .site-nav a:hover { color: var(--color-header-text); text-decoration: none; }
+.site-nav a:hover::after { transform: scaleX(1); }
 
 .header-actions { display: flex; gap: var(--space-3); }
 
@@ -141,9 +154,25 @@ ul { list-style: none; }
    Hero
    ============================================================ */
 .hero {
-  background: linear-gradient(160deg, var(--color-header-bg) 0%, var(--color-accent-dark) 140%);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--color-header-bg) 0%, var(--color-accent-light) 220%);
   color: var(--color-header-text);
   padding: var(--space-8) 0;
+}
+
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
 }
 
 .eyebrow {
@@ -153,6 +182,7 @@ ul { list-style: none; }
   font-weight: 700;
   color: var(--color-accent-2);
   margin-bottom: var(--space-2);
+  min-height: 1.2em;
 }
 
 .hero h1 {
@@ -164,6 +194,22 @@ ul { list-style: none; }
   font-size: 1.15rem;
   color: var(--color-header-text-muted);
   max-width: 640px;
+  min-height: 1.8em;
+}
+
+.hero .lead.typing::after {
+  content: "|";
+  margin-left: 2px;
+  color: var(--color-accent-2);
+  animation: blink 0.8s step-start infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .lead.typing::after { animation: none; }
 }
 
 /* ============================================================
@@ -188,7 +234,7 @@ ul { list-style: none; }
 .subsection-title {
   font-size: 1.1rem;
   margin-bottom: var(--space-4);
-  color: var(--color-accent-dark);
+  color: var(--color-accent-light);
 }
 
 /* About */
@@ -212,6 +258,12 @@ ul { list-style: none; }
   border-radius: var(--radius-md);
   padding: var(--space-5);
   box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.experience-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-accent);
 }
 
 .experience-item h3 {
@@ -257,6 +309,12 @@ ul { list-style: none; }
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-accent);
 }
 
 .project-card-body { padding: var(--space-6); }
@@ -267,7 +325,7 @@ ul { list-style: none; }
 }
 
 .project-tagline {
-  color: var(--color-accent-dark);
+  color: var(--color-accent-light);
   font-weight: 600;
   margin-bottom: var(--space-4);
 }
@@ -346,6 +404,13 @@ ul { list-style: none; }
   border-radius: var(--radius-sm);
   padding: var(--space-4);
   margin-bottom: var(--space-3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.certifications-list li:hover,
+.education-list li:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-accent);
 }
 
 .cert-name { font-weight: 700; }
@@ -367,7 +432,7 @@ ul { list-style: none; }
   font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--color-accent-dark);
+  color: var(--color-accent-light);
   margin-bottom: var(--space-3);
 }
 
@@ -383,6 +448,12 @@ ul { list-style: none; }
   padding: var(--space-1) var(--space-3);
   border-radius: var(--radius-sm);
   font-size: 0.85rem;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.skill-tag:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #ffffff;
 }
 
 /* Contact */
@@ -398,6 +469,12 @@ ul { list-style: none; }
   border-radius: var(--radius-md);
   padding: var(--space-5);
   min-width: 220px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.contact-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-accent);
 }
 
 .contact-item .contact-label {
