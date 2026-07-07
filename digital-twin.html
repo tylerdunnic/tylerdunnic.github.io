@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Twin Prototype — Tyler Dunnic</title>
+<meta name="description" content="Interactive browser-based Three.js digital twin of a generic assembly line, by Tyler Dunnic.">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/digital-twin.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html#top" class="site-name">Tyler Dunnic</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html#about">About</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#certifications">Certifications &amp; Education</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a id="resume-link" class="btn btn-outline" href="assets/resume/Tyler_Dunnic_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a id="linkedin-link" class="btn btn-outline" href="#" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-header">
+    <div class="container">
+      <a href="projects.html#digital-twin-prototype" class="back-link">← Back to Projects</a>
+      <p class="eyebrow">Interactive Demo</p>
+      <h1>Digital Twin Prototype</h1>
+      <p class="lead">A live, browser-rendered Three.js simulation of a 12-station assembly line — fixtures travel station to station, one fails functional test and triggers a line stop, then clears on retest, all while KPIs update in real time.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="notice warn">
+        <strong>This is illustrative, not real production data.</strong> The station layout, timing, and event data are
+        generic/fictionalized — inspired by manufacturing internship experience with automated lines, but not a
+        reproduction of any employer's actual process. Built to learn Three.js and real-time 3D web programming.
+      </div>
+
+      <div id="twin-stage">
+        <div id="canvas-container"><canvas id="three-canvas"></canvas></div>
+
+        <div id="kpi-bar">
+          <div class="kpi-tile-twin">
+            <div class="kpi-label-twin">Completed</div>
+            <div class="kpi-value-twin green" id="kpi-completed">0</div>
+          </div>
+          <div class="kpi-tile-twin">
+            <div class="kpi-label-twin">On Line</div>
+            <div class="kpi-value-twin blue" id="kpi-online">0</div>
+          </div>
+          <div class="kpi-tile-twin">
+            <div class="kpi-label-twin">Test Fails</div>
+            <div class="kpi-value-twin red" id="kpi-fails">0</div>
+          </div>
+          <div class="kpi-tile-twin">
+            <div class="kpi-label-twin">Line Stops</div>
+            <div class="kpi-value-twin amber" id="kpi-stops">0</div>
+          </div>
+          <div class="kpi-tile-twin">
+            <div class="kpi-label-twin">Downtime</div>
+            <div class="kpi-value-twin amber" id="kpi-downtime">0:00</div>
+          </div>
+          <div class="kpi-tile-twin">
+            <div class="kpi-label-twin">Est. OEE</div>
+            <div class="kpi-value-twin green" id="kpi-oee">100%</div>
+          </div>
+          <div class="kpi-tile-twin">
+            <div class="kpi-label-twin">MTBS</div>
+            <div class="kpi-value-twin" id="kpi-mtbs">—</div>
+          </div>
+          <div id="status-badge" class="status-running">RUNNING</div>
+        </div>
+
+        <div id="controls">
+          <button class="ctrl-btn" id="btn-pause">⏸ Pause</button>
+          <button class="ctrl-btn" id="btn-reset">↺ Reset</button>
+          <div class="speed-group">
+            <button class="speed-btn" data-speed="0.5">0.5×</button>
+            <button class="speed-btn active" data-speed="1">1×</button>
+            <button class="speed-btn" data-speed="2">2×</button>
+            <button class="speed-btn" data-speed="4">4×</button>
+          </div>
+          <span class="ctrl-hint">drag to orbit · scroll to zoom</span>
+        </div>
+
+        <div id="event-log-panel">
+          <div class="panel-header">Real-Time Event Log</div>
+          <div id="event-log"></div>
+        </div>
+
+        <div id="legend">
+          <div class="legend-title">Station Types</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#185FA5"></div>Material Handling</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#3B6D11"></div>Assembly</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#854F0B"></div>Wire Install</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#A32D2D"></div>Test</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#3C3489"></div>Pack / Ship</div>
+          <div class="legend-sep"></div>
+          <div class="legend-title">Fixture Status</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#1D9E75"></div>OK / Running</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#E24B4A"></div>Test Fail</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#EF9F27"></div>Retest</div>
+        </div>
+      </div>
+
+      <p class="section-subtitle" style="margin-top: var(--space-4); margin-bottom: 0;">
+        Fixtures spawn every ~4 seconds and travel through 12 stations. Two fixtures (FX-004, FX-012) are
+        pre-designated to fail functional test on the first pass, triggering a line stop until they clear retest —
+        watch the KPI bar and event log react in real time.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; <span id="footer-year"></span> Tyler Dunnic. Built with plain HTML, CSS, and JS — hosted on GitHub Pages. Developed with <a href="https://claude.ai/code" target="_blank" rel="noopener">Claude Code</a>.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/digital-twin.js"></script>
+</body>
+</html>
