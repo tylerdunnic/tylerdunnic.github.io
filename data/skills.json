@@ -1,0 +1,22 @@
+[
+  {
+    "group": "Design & Simulation",
+    "items": ["SolidWorks", "AutoCAD", "MasterCAM", "MagmaSoft", "Finite Element Analysis (FEA)"]
+  },
+  {
+    "group": "Data & Automation",
+    "items": ["Power BI", "VBA", "Power Automate"]
+  },
+  {
+    "group": "Manufacturing Systems",
+    "items": ["SAP ERP", "LLumin CMMS"]
+  },
+  {
+    "group": "Process Improvement",
+    "items": ["Six Sigma", "Kaizen", "Design for Manufacturing (DFM)"]
+  },
+  {
+    "group": "Applied AI",
+    "items": ["Web App Development", "Digital Twin Prototyping", "Data Analysis"]
+  }
+]

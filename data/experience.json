@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Manufacturing Engineering Intern",
+    "company": "H.E. Williams",
+    "location": "Carthage, MO",
+    "dates": "Jan–May 2026, May–Aug 2025, May–Aug 2024, May–Aug 2023",
+    "bullets": [
+      "Utilized computer-aided design software for equipment/tool design and finite element analysis.",
+      "Built Power BI dashboards tracking scrap rate and operator efficiency, enabling data-driven decisions for production.",
+      "Automated production management workflows using VBA and Power Automate.",
+      "Applied Six Sigma and Kaizen methodologies across assembly and CNC/fab departments, targeting cycle time and waste reduction.",
+      "Designed and programmed a PLC-controlled oil/water skimming system, reducing manual oversight in pre-paint washing operations.",
+      "Rolled out a CMMS platform, standardizing preventive maintenance scheduling and strengthening regulatory/safety compliance."
+    ]
+  },
+  {
+    "title": "Maintenance Engineering Intern",
+    "company": "Schaeffler",
+    "location": "Joplin, MO",
+    "dates": "Aug–Dec 2025",
+    "bullets": [
+      "Supported maintenance inventory control processes, including stock tracking and part procurement.",
+      "Processed and prioritized maintenance work orders using SAP ERP.",
+      "Created SOPs and work instructions for machines, standardizing safe operating procedures across shifts."
+    ]
+  }
+]

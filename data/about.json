@@ -1,0 +1,12 @@
+{
+  "name": "Tyler Dunnic",
+  "title": "Manufacturing Engineering Technologist",
+  "location": "Carthage, MO",
+  "tagline": "Manufacturing Engineering Technology graduate applying hands-on shop-floor experience and applied AI to solve real production problems.",
+  "bio": [
+    "Tyler is a Certified Manufacturing Technologist (CMfgT) and a recent graduate of the Manufacturing Engineering Technology program at Pittsburg State University. His background spans manufacturing engineering and maintenance engineering internships, where he worked directly on equipment design, process improvement, and production automation.",
+    "Across four internship terms at H.E. Williams, Tyler used computer-aided design and finite element analysis for equipment and tooling projects, built Power BI dashboards to track scrap rate and operator efficiency, and automated production workflows with VBA and Power Automate. He also applied Six Sigma and Kaizen methodologies on the assembly and CNC/fabrication floor, and designed a PLC-controlled oil/water skimming system for pre-paint washing operations.",
+    "At Schaeffler, Tyler supported maintenance inventory control, processed work orders through SAP ERP, and wrote SOPs and work instructions to standardize safe operating procedures across shifts.",
+    "Outside of internships, Tyler has applied his design and manufacturing skills to independent engineering projects, including a competition-ready cast steel Horseman's Axe and a redesigned production dogsled fixture, and has been building applied-AI skills through Anthropic's AI Fluency coursework."
+  ]
+}

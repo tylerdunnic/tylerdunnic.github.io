@@ -1,0 +1,49 @@
+[
+  {
+    "id": "horsemans-axe",
+    "title": "Horseman's Axe — SFSA Cast in Steel 2026",
+    "tagline": "Competition-ready, historically accurate cast steel axe built to strict weight, length, and porosity requirements.",
+    "objective": "Design and manufacture a historically accurate, competition-ready Horseman's Axe for the SFSA Cast In Steel 2026 competition, satisfying strict weight (≤ 3.3 lb.), length (≤ 31.5 in.), and porosity (≤ 10%) requirements while demonstrating casting creativity, authenticity, and quality control.",
+    "challenges": [
+      "Balancing historical authenticity with manufacturability by selecting manufacturing processes that ensure dimensional accuracy while remaining cost-effective for production.",
+      "Achieving target hardness and toughness through strategic material selection and heat treatment.",
+      "Coordinating long foundry lead times and multiple casting processes across vendors, requiring proactive contingency planning to keep the project on schedule."
+    ],
+    "outcomes": [
+      "Delivered a final assembly that met all customer requirements, validated through a 20-unit production run, alongside a comprehensive technical report covering budget, schedule, part drawings, simulation results, FMEA, routing sheets, testing procedures, and project video.",
+      "Competed against 58 teams from 36 schools; passed all five rounds of performance testing.",
+      "Built hands-on experience in design for manufacturing, process selection, FEA/casting simulation, and cross-functional project management."
+    ],
+    "tags": ["SolidWorks", "FEA", "MagmaSoft", "Investment Casting", "Heat Treatment", "DFM"],
+    "images": [
+      { "src": "assets/images/axe/finished-axe-full.png", "alt": "Completed Horseman's Axe, full assembly" },
+      { "src": "assets/images/axe/axe-head-detail.png", "alt": "Close-up detail of the cast axe head" },
+      { "src": "assets/images/axe/pommel-detail.png", "alt": "Close-up detail of the cast aluminum pommel" },
+      { "src": "assets/images/axe/wax-tree-cad.png", "alt": "CAD model of the investment casting wax tree" },
+      { "src": "assets/images/axe/wax-pattern-tree.png", "alt": "Physical wax pattern tree before shell investment" },
+      { "src": "assets/images/axe/investment-casting-tree.png", "alt": "Investment casting tree after shelling" },
+      { "src": "assets/images/axe/cnc-shaft-machining.png", "alt": "CNC machining of the axe shaft" },
+      { "src": "assets/images/axe/historical-reference.png", "alt": "Historical reference image of a Horseman's Axe" }
+    ],
+    "note": "Full technical report available on request."
+  },
+  {
+    "id": "production-dogsled",
+    "title": "Production Dogsled Redesign",
+    "tagline": "Redesigned a legacy all-steel shop transport fixture into a lighter, foldable aluminum structure.",
+    "objective": "Redesign production dogsleds used to transport sheet metal channels between departments, replacing the legacy all-steel design with an aluminum structure. Key requirements included reducing overall weight, incorporating a folding mechanism to enable stackable storage, and designing welding fixtures to support repeatable, manufacturable production.",
+    "challenges": [
+      "Engineering a structural design that leveraged aluminum's strength-to-weight ratio while minimizing material usage, and selecting casters and hinges that met performance requirements while remaining cost-effective for production across multiple units.",
+      "Balanced functional design requirements with aesthetic considerations, ensuring the dogsleds were visually presentable for use by the marketing team to transport parts to trade shows and displays."
+    ],
+    "outcomes": [
+      "Delivered a redesigned dogsled that met all customer requirements, achieving an approximate 50% reduction in weight compared to the original steel design.",
+      "The folding/stacking functionality performed as intended, reducing the facility's floor space footprint previously occupied by the sleds."
+    ],
+    "tags": ["SolidWorks", "Aluminum Fabrication", "Welding Fixture Design", "DFM"],
+    "images": [
+      { "src": "assets/images/dogsled/finished-dogsleds.png", "alt": "Finished aluminum production dogsleds, folded and stacked" }
+    ],
+    "note": ""
+  }
+]
