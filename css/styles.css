@@ -376,7 +376,7 @@ ul { list-style: none; }
 
 .project-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(6, 1fr);
   gap: var(--space-2);
   padding: var(--space-2);
   background: var(--color-surface-alt);
@@ -502,8 +502,16 @@ ul { list-style: none; }
 /* ============================================================
    Responsive
    ============================================================ */
+@media (max-width: 900px) {
+  .project-gallery { grid-template-columns: repeat(3, 1fr); }
+}
+
 @media (max-width: 720px) {
   .header-inner { flex-direction: column; align-items: flex-start; }
   .hero h1 { font-size: 2rem; }
   .cert-edu-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .project-gallery { grid-template-columns: repeat(2, 1fr); }
 }

@@ -16,14 +16,18 @@
     ],
     "tags": ["SolidWorks", "FEA", "MagmaSoft", "Investment Casting", "Heat Treatment", "DFM"],
     "images": [
-      { "src": "assets/images/axe/finished-axe-full.png", "alt": "Completed Horseman's Axe, full assembly" },
-      { "src": "assets/images/axe/axe-head-detail.png", "alt": "Close-up detail of the cast axe head" },
-      { "src": "assets/images/axe/pommel-detail.png", "alt": "Close-up detail of the cast aluminum pommel" },
-      { "src": "assets/images/axe/wax-tree-cad.png", "alt": "CAD model of the investment casting wax tree" },
-      { "src": "assets/images/axe/wax-pattern-tree.png", "alt": "Physical wax pattern tree before shell investment" },
-      { "src": "assets/images/axe/investment-casting-tree.png", "alt": "Investment casting tree after shelling" },
-      { "src": "assets/images/axe/cnc-shaft-machining.png", "alt": "CNC machining of the axe shaft" },
-      { "src": "assets/images/axe/historical-reference.png", "alt": "Historical reference image of a Horseman's Axe" }
+      { "src": "assets/images/axe/C1R1.jpeg", "alt": "Close-up of the finished cast axe head with engraved gorilla design" },
+      { "src": "assets/images/axe/C2R1.jpeg", "alt": "Wax pattern trees burning during ceramic shell burnout" },
+      { "src": "assets/images/axe/C3R1.jpeg", "alt": "3D printed gorilla head patterns arranged for the investment casting tree" },
+      { "src": "assets/images/axe/C4R1.jpeg", "alt": "3D printed pattern for the pommel top insert" },
+      { "src": "assets/images/axe/C5R1.jpeg", "alt": "Close-up of the cast pommel with engraved axe emblem" },
+      { "src": "assets/images/axe/C6R1.jpeg", "alt": "Wax pattern tree with gorilla head castings ready for shelling" },
+      { "src": "assets/images/axe/C1R2.jpg", "alt": "Finished axe mounted for swing-test impact testing against a practice dummy" },
+      { "src": "assets/images/axe/C2R2.jpeg", "alt": "Display table of finished Horseman's Axe components and competition documentation" },
+      { "src": "assets/images/axe/C3R2.jpeg", "alt": "CNC engraving of the gorilla face detail into the axe head blanks" },
+      { "src": "assets/images/axe/C4R2.jpeg", "alt": "Foundry team pouring molten steel into the investment casting mold" },
+      { "src": "assets/images/axe/C5R2.jpeg", "alt": "Sand casting mold halves for the pommel" },
+      { "src": "assets/images/axe/C6R2.jpeg", "alt": "Row of finished axe heads from the 20-unit production run, individually numbered" }
     ],
     "note": "Full technical report available on request."
   },
