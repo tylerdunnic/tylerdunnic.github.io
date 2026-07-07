@@ -1,5 +1,25 @@
 [
   {
+    "id": "mock-production-dashboard",
+    "title": "Mock Production Dashboard",
+    "tagline": "Interactive production KPI dashboard with fabricated 30-day data, live charts, and auto-generated recommendations.",
+    "objective": "Design and build a self-contained, interactive production KPI dashboard — using fabricated but realistic data — to demonstrate applied web development and data analysis skills alongside the hands-on manufacturing projects on this site.",
+    "challenges": [
+      "Building custom line, bar, and scatter charts from scratch in vanilla JavaScript and SVG, with no external charting libraries, while keeping the visualizations readable and interactive.",
+      "Generating a fabricated 30-day dataset that behaves like real production data, including realistic noise, trends, and anomalies worth flagging.",
+      "Computing recommendations directly from the underlying data (spikes, dips, week-over-week trends, day-of-week patterns) rather than hardcoding them, so the insights are genuinely data-driven."
+    ],
+    "outcomes": [
+      "Delivered a fully interactive dashboard with hover tooltips, a 2x2 chart grid, and an auto-ranked Recommendations panel, styled to match the rest of this site.",
+      "Demonstrates the same applied-AI and data-analysis skillset used to build the Power BI dashboards referenced in the Experience section, translated into a live, clickable web format.",
+      "Structured so new KPIs, charts, or a real data source can be swapped in without touching layout code."
+    ],
+    "tags": ["Data Visualization", "JavaScript", "SVG", "Web App Development", "Data Analysis"],
+    "images": [],
+    "demoUrl": "mock-production-dashboard.html",
+    "note": "Fabricated data — for demonstration purposes only."
+  },
+  {
     "id": "horsemans-axe",
     "title": "Horseman's Axe — SFSA Cast in Steel 2026",
     "tagline": "Competition-ready, historically accurate cast steel axe built to strict weight, length, and porosity requirements.",

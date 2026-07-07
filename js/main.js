@@ -72,9 +72,16 @@ function buildProjectCardFull(project) {
   const outcomes = el('ul', {}, project.outcomes.map(o => el('li', { text: o })));
   const tags = el('div', { className: 'tag-row' }, project.tags.map(t => el('span', { className: 'tag', text: t })));
 
-  const body = el('div', { className: 'project-card-body' }, [
+  const bodyChildren = [];
+  if (project.demoUrl) bodyChildren.push(el('span', { className: 'demo-badge', text: 'Interactive Demo' }));
+  bodyChildren.push(
     el('h3', { text: project.title }),
-    el('p', { className: 'project-tagline', text: project.tagline }),
+    el('p', { className: 'project-tagline', text: project.tagline })
+  );
+  if (project.demoUrl) {
+    bodyChildren.push(el('a', { className: 'btn btn-primary demo-launch-btn', href: project.demoUrl, text: 'Launch Interactive Demo →' }));
+  }
+  bodyChildren.push(
     el('h4', { text: 'Objective' }),
     el('p', { text: project.objective }),
     el('h4', { text: 'Challenges' }),
@@ -82,7 +89,9 @@ function buildProjectCardFull(project) {
     el('h4', { text: 'Outcomes' }),
     outcomes,
     tags
-  ]);
+  );
+
+  const body = el('div', { className: 'project-card-body' }, bodyChildren);
 
   const card = el('article', { className: 'project-card', id: project.id });
   card.appendChild(body);
@@ -103,12 +112,15 @@ function buildProjectCardPreview(project) {
     ? el('img', { className: 'project-preview-thumb', src: project.images[0].src, alt: project.images[0].alt, loading: 'lazy' })
     : null;
 
-  const body = el('div', { className: 'project-card-body' }, [
+  const previewChildren = [];
+  if (project.demoUrl) previewChildren.push(el('span', { className: 'demo-badge', text: 'Interactive Demo' }));
+  previewChildren.push(
     el('h3', { text: project.title }),
     el('p', { className: 'project-tagline', text: project.tagline }),
     tags,
     el('span', { className: 'view-details-link', text: 'View Details →' })
-  ]);
+  );
+  const body = el('div', { className: 'project-card-body' }, previewChildren);
 
   const card = el('a', { className: 'project-card project-card--preview', href: `projects.html#${project.id}` });
   if (thumb) card.appendChild(thumb);

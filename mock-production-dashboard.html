@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mock Production Dashboard — Tyler Dunnic</title>
+<meta name="description" content="Interactive mock production KPI dashboard by Tyler Dunnic, built with vanilla JavaScript and SVG.">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html#top" class="site-name">Tyler Dunnic</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html#about">About</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#certifications">Certifications &amp; Education</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a id="resume-link" class="btn btn-outline" href="assets/resume/Tyler_Dunnic_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a id="linkedin-link" class="btn btn-outline" href="#" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-header">
+    <div class="container">
+      <a href="projects.html#mock-production-dashboard" class="back-link">← Back to Projects</a>
+      <p class="eyebrow">Mock Dashboard Demo</p>
+      <h1>Production Dashboard</h1>
+      <p class="company-placeholder">[Insert Company Name Here]</p>
+      <div class="meta-row">
+        <span>Data as of <strong id="asof-date"></strong></span>
+        <span>Range: <strong id="range-dates"></strong> (Trailing 30 Days)</span>
+      </div>
+      <span class="mock-badge">MOCK DATA — for demonstration purposes only</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Today's KPIs</h2>
+      <p class="section-subtitle">Compared against the trailing 30-day average</p>
+      <div class="kpi-grid" id="kpi-grid"></div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Trends — Last 30 Days</h2>
+      <p class="section-subtitle">Line, bar, and scatter views of the underlying daily data</p>
+      <div class="charts-grid">
+        <div class="chart-card">
+          <h3>OEE Over Time</h3>
+          <p class="chart-caption">Overall Equipment Effectiveness, daily %</p>
+          <div id="chart-oee" style="position:relative;"></div>
+        </div>
+        <div class="chart-card">
+          <h3>Daily Scrap Rate</h3>
+          <p class="chart-caption">% scrapped vs. units produced, per day</p>
+          <div id="chart-scrap" style="position:relative;"></div>
+          <div class="chart-legend">
+            <span><span class="swatch" style="background:var(--status-high)"></span>Above 5% threshold</span>
+            <span><span class="swatch" style="background:var(--color-accent)"></span>Within threshold</span>
+          </div>
+        </div>
+        <div class="chart-card">
+          <h3>Operator Eff. vs. Time Eff.</h3>
+          <p class="chart-caption">Each point is one day over the trailing period</p>
+          <div id="chart-scatter" style="position:relative;"></div>
+        </div>
+        <div class="chart-card">
+          <h3>Daily Downtime</h3>
+          <p class="chart-caption">Unplanned + planned downtime, hours per day</p>
+          <div id="chart-downtime" style="position:relative;"></div>
+          <div class="chart-legend">
+            <span><span class="swatch" style="background:var(--status-monitor)"></span>Friday</span>
+            <span><span class="swatch" style="background:var(--color-accent)"></span>Other days</span>
+          </div>
+        </div>
+      </div>
+      <div class="table-toggle-row">
+        <button class="btn-link" id="table-toggle-btn">Show 30-day data table</button>
+      </div>
+      <div class="data-table-wrap" id="data-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th><th>OEE %</th><th>Scrap %</th><th>Operator Eff %</th>
+              <th>Time Eff %</th><th>Throughput</th><th>Downtime (hr)</th><th>FPY %</th>
+            </tr>
+          </thead>
+          <tbody id="data-table-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Recommendations</h2>
+      <p class="section-subtitle">Automatically generated from the 30-day dataset, ranked by priority</p>
+      <div class="pattern-list" id="pattern-list"></div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Part Summary — Today</h2>
+      <p class="section-subtitle">Planned vs. actual production by part number</p>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr><th>Part #</th><th>Description</th><th>Qty Planned</th><th>Qty Made</th><th>Status</th></tr>
+          </thead>
+          <tbody id="part-table-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; <span id="footer-year"></span> Tyler Dunnic. Built with plain HTML, CSS, and JS — hosted on GitHub Pages. Developed with <a href="https://claude.ai/code" target="_blank" rel="noopener">Claude Code</a>.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

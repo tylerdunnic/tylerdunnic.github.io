@@ -18,6 +18,15 @@
   --color-accent-light: #60a5fa; /* lighter blue — text/gradient use on dark surfaces */
   --color-accent-2: #22c55e;     /* green — secondary accent */
 
+  /* Status colors — reserved for state indicators, not decorative use */
+  --status-high: #ef4444;
+  --status-high-bg: rgba(239, 68, 68, 0.12);
+  --status-monitor: #d97706;
+  --status-monitor-bg: rgba(217, 119, 6, 0.14);
+  --status-note: #3b82f6;
+  --status-note-bg: rgba(59, 130, 246, 0.12);
+  --status-good: #16a34a;
+
   /* Typography */
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-mono: "Consolas", "SFMono-Regular", Menlo, monospace;
@@ -275,6 +284,13 @@ ul { list-style: none; }
   display: inline-block;
 }
 
+.section-subtitle {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin-top: calc(-1 * var(--space-5));
+  margin-bottom: var(--space-6);
+}
+
 .subsection-title {
   font-size: 1.1rem;
   margin-bottom: var(--space-4);
@@ -372,6 +388,21 @@ ul { list-style: none; }
   color: var(--color-accent-light);
   font-weight: 600;
   margin-bottom: var(--space-4);
+}
+
+.demo-badge {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-accent-2);
+  margin-bottom: var(--space-2);
+}
+
+.demo-launch-btn {
+  display: inline-block;
+  margin: var(--space-2) 0 var(--space-5);
 }
 
 .project-card h4 {
