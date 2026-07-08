@@ -26,7 +26,7 @@
   },
   {
     "id": "mock-production-dashboard",
-    "title": "Production Dashboard Prototype",
+    "title": "Production Dashboard",
     "tagline": "Interactive production KPI dashboard with fabricated 30-day data, live charts, and auto-generated recommendations.",
     "homepage": true,
     "objective": "Evolve a shop-floor production tracking tool through three iterations — from an Excel macro, to a Power BI dashboard, to this standalone web app — to demonstrate applied data analysis and web development skills.",
