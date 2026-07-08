@@ -481,18 +481,6 @@ ul { list-style: none; }
 }
 .project-card--preview:hover { text-decoration: none; }
 
-.project-card--preview.is-blurred {
-  filter: blur(3px);
-  opacity: 0.55;
-  pointer-events: none;
-  user-select: none;
-}
-.project-card--preview.is-blurred:hover {
-  transform: none;
-  box-shadow: var(--shadow-sm);
-  border-color: var(--color-border);
-}
-
 .project-card--preview h3 { color: var(--color-text); }
 
 .project-preview-thumb {

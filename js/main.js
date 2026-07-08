@@ -113,8 +113,7 @@ function buildProjectCardFull(project) {
   return card;
 }
 
-function buildProjectCardPreview(project, options = {}) {
-  const blurred = !!options.blurred;
+function buildProjectCardPreview(project) {
   const tags = el('div', { className: 'tag-row' }, project.tags.map(t => el('span', { className: 'tag', text: t })));
   const thumb = project.images && project.images[0]
     ? el('img', { className: 'project-preview-thumb', src: project.images[0].src, alt: project.images[0].alt, loading: 'lazy' })
@@ -130,14 +129,7 @@ function buildProjectCardPreview(project, options = {}) {
   );
   const body = el('div', { className: 'project-card-body' }, previewChildren);
 
-  const card = el('a', {
-    className: 'project-card project-card--preview' + (blurred ? ' is-blurred' : ''),
-    href: `projects.html#${project.id}`
-  });
-  if (blurred) {
-    card.setAttribute('tabindex', '-1');
-    card.setAttribute('aria-hidden', 'true');
-  }
+  const card = el('a', { className: 'project-card project-card--preview', href: `projects.html#${project.id}` });
   if (thumb) card.appendChild(thumb);
   card.appendChild(body);
   return card;
@@ -152,10 +144,7 @@ function renderProjectsFull(projects) {
 function renderProjectsPreview(projects) {
   const list = document.getElementById('projects-preview-list');
   if (!list) return;
-  const featured = projects.filter(p => p.featured);
-  const rest = projects.filter(p => !p.featured);
-  featured.forEach(project => list.appendChild(buildProjectCardPreview(project)));
-  rest.forEach(project => list.appendChild(buildProjectCardPreview(project, { blurred: true })));
+  projects.filter(p => p.homepage).forEach(project => list.appendChild(buildProjectCardPreview(project)));
 }
 
 function renderCertifications(certs) {

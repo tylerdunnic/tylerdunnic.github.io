@@ -1,34 +1,9 @@
 [
   {
-    "id": "mock-production-dashboard",
-    "title": "Production Dashboard Prototype",
-    "tagline": "Interactive production KPI dashboard with fabricated 30-day data, live charts, and auto-generated recommendations.",
-    "featured": false,
-    "objective": "Evolve a shop-floor production tracking tool through three iterations — from an Excel macro, to a Power BI dashboard, to this standalone web app — to demonstrate applied data analysis and web development skills.",
-    "challenges": [
-      "Building custom line, bar, and scatter charts from scratch in vanilla JavaScript and SVG, with no external charting libraries, while keeping the visualizations readable and interactive.",
-      "Generating a fabricated 30-day dataset that behaves like real production data, including realistic noise, trends, and anomalies worth flagging.",
-      "Computing recommendations directly from the underlying data (spikes, dips, week-over-week trends, day-of-week patterns) rather than hardcoding them, so the insights are genuinely data-driven."
-    ],
-    "outcomes": [
-      "First iteration: an Excel workbook with a macro that parsed ERP-exported CSV files into daily scrap-rate and efficiency fields — functional, but limited to one file at a time on one person's machine.",
-      "Second iteration: a Power BI dashboard built on a live query against those same CSV exports, adding automatic refresh and richer visuals, but still tied to a single licensed seat and a local file path.",
-      "Third iteration (this project): a self-contained, framework-free web dashboard that runs in any browser, needs no license or installed software, and can be shared across departments with a single link — while remaining fully data-driven and easy to extend with new KPIs.",
-      "Delivered a fully interactive dashboard with hover tooltips, a 2x2 chart grid, and an auto-ranked Recommendations panel, styled to match the rest of this site."
-    ],
-    "tags": ["Data Visualization", "JavaScript", "SVG", "Web App Development", "Data Analysis"],
-    "images": [
-      { "src": "assets/images/dashboard/charts-preview.png", "alt": "2x2 grid of the dashboard's line, bar, and scatter charts showing 30 days of production KPIs" }
-    ],
-    "demoUrl": "mock-production-dashboard.html",
-    "dataSheetUrl": "assets/data/production-dashboard-sample-export.xlsx",
-    "note": "Fabricated data — for demonstration purposes only."
-  },
-  {
     "id": "digital-twin-prototype",
     "title": "Digital Twin Prototype",
     "tagline": "Live, browser-rendered Three.js simulation of a 12-station assembly line with real-time KPIs.",
-    "featured": true,
+    "homepage": true,
     "objective": "Build a browser-based digital twin of a generic automated assembly line, inspired by manufacturing internship experience with automated production lines, to demonstrate real-time 3D web programming and applied data visualization.",
     "challenges": [
       "Building a real-time 3D scene from scratch — station geometry, lighting, camera orbit controls, and animated fixtures — using only Three.js and vanilla JavaScript.",
@@ -50,9 +25,34 @@
     "note": "Illustrative/fictionalized data — for demonstration purposes only."
   },
   {
+    "id": "mock-production-dashboard",
+    "title": "Production Dashboard Prototype",
+    "tagline": "Interactive production KPI dashboard with fabricated 30-day data, live charts, and auto-generated recommendations.",
+    "homepage": true,
+    "objective": "Evolve a shop-floor production tracking tool through three iterations — from an Excel macro, to a Power BI dashboard, to this standalone web app — to demonstrate applied data analysis and web development skills.",
+    "challenges": [
+      "Building custom line, bar, and scatter charts from scratch in vanilla JavaScript and SVG, with no external charting libraries, while keeping the visualizations readable and interactive.",
+      "Generating a fabricated 30-day dataset that behaves like real production data, including realistic noise, trends, and anomalies worth flagging.",
+      "Computing recommendations directly from the underlying data (spikes, dips, week-over-week trends, day-of-week patterns) rather than hardcoding them, so the insights are genuinely data-driven."
+    ],
+    "outcomes": [
+      "First iteration: an Excel workbook with a macro that parsed ERP-exported CSV files into daily scrap-rate and efficiency fields — functional, but limited to one file at a time on one person's machine.",
+      "Second iteration: a Power BI dashboard built on a live query against those same CSV exports, adding automatic refresh and richer visuals, but still tied to a single licensed seat and a local file path.",
+      "Third iteration (this project): a self-contained, framework-free web dashboard that runs in any browser, needs no license or installed software, and can be shared across departments with a single link — while remaining fully data-driven and easy to extend with new KPIs.",
+      "Delivered a fully interactive dashboard with hover tooltips, a 2x2 chart grid, and an auto-ranked Recommendations panel, styled to match the rest of this site."
+    ],
+    "tags": ["Data Visualization", "JavaScript", "SVG", "Web App Development", "Data Analysis"],
+    "images": [
+      { "src": "assets/images/dashboard/charts-preview.png", "alt": "2x2 grid of the dashboard's line, bar, and scatter charts showing 30 days of production KPIs" }
+    ],
+    "demoUrl": "mock-production-dashboard.html",
+    "dataSheetUrl": "assets/data/production-dashboard-sample-export.xlsx",
+    "note": "Fabricated data — for demonstration purposes only."
+  },
+  {
     "id": "horsemans-axe",
     "title": "Horseman's Axe — SFSA Cast in Steel 2026",
-    "featured": true,
+    "homepage": true,
     "tagline": "Competition-ready, historically accurate cast steel axe built to strict weight, length, and porosity requirements.",
     "objective": "Design and manufacture a historically accurate, competition-ready Horseman's Axe for the SFSA Cast In Steel 2026 competition, satisfying strict weight (≤ 3.3 lb.), length (≤ 31.5 in.), and porosity (≤ 10%) requirements while demonstrating casting creativity, authenticity, and quality control.",
     "challenges": [
@@ -85,7 +85,7 @@
   {
     "id": "production-dogsled",
     "title": "Production Dogsled Redesign",
-    "featured": false,
+    "homepage": false,
     "tagline": "Redesigned a legacy all-steel shop transport fixture into a lighter, foldable aluminum structure.",
     "objective": "Redesign production dogsleds used to transport sheet metal channels between departments, replacing the legacy all-steel design with an aluminum structure. Key requirements included reducing overall weight, incorporating a folding mechanism to enable stackable storage, and designing welding fixtures to support repeatable, manufacturable production.",
     "challenges": [
