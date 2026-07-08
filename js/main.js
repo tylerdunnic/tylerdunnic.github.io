@@ -78,8 +78,15 @@ function buildProjectCardFull(project) {
     el('h3', { text: project.title }),
     el('p', { className: 'project-tagline', text: project.tagline })
   );
-  if (project.demoUrl) {
-    bodyChildren.push(el('a', { className: 'btn btn-primary demo-launch-btn', href: project.demoUrl, text: 'Launch Interactive Demo →' }));
+  if (project.demoUrl || project.dataSheetUrl) {
+    const ctaButtons = [];
+    if (project.demoUrl) {
+      ctaButtons.push(el('a', { className: 'btn btn-primary', href: project.demoUrl, text: 'Launch Interactive Demo →' }));
+    }
+    if (project.dataSheetUrl) {
+      ctaButtons.push(el('a', { className: 'btn btn-outline', href: project.dataSheetUrl, text: 'View Example Data Sheet' }));
+    }
+    bodyChildren.push(el('div', { className: 'project-cta-row' }, ctaButtons));
   }
   bodyChildren.push(
     el('h4', { text: 'Objective' }),
@@ -106,7 +113,8 @@ function buildProjectCardFull(project) {
   return card;
 }
 
-function buildProjectCardPreview(project) {
+function buildProjectCardPreview(project, options = {}) {
+  const blurred = !!options.blurred;
   const tags = el('div', { className: 'tag-row' }, project.tags.map(t => el('span', { className: 'tag', text: t })));
   const thumb = project.images && project.images[0]
     ? el('img', { className: 'project-preview-thumb', src: project.images[0].src, alt: project.images[0].alt, loading: 'lazy' })
@@ -122,7 +130,14 @@ function buildProjectCardPreview(project) {
   );
   const body = el('div', { className: 'project-card-body' }, previewChildren);
 
-  const card = el('a', { className: 'project-card project-card--preview', href: `projects.html#${project.id}` });
+  const card = el('a', {
+    className: 'project-card project-card--preview' + (blurred ? ' is-blurred' : ''),
+    href: `projects.html#${project.id}`
+  });
+  if (blurred) {
+    card.setAttribute('tabindex', '-1');
+    card.setAttribute('aria-hidden', 'true');
+  }
   if (thumb) card.appendChild(thumb);
   card.appendChild(body);
   return card;
@@ -137,7 +152,10 @@ function renderProjectsFull(projects) {
 function renderProjectsPreview(projects) {
   const list = document.getElementById('projects-preview-list');
   if (!list) return;
-  projects.forEach(project => list.appendChild(buildProjectCardPreview(project)));
+  const featured = projects.filter(p => p.featured);
+  const rest = projects.filter(p => !p.featured);
+  featured.forEach(project => list.appendChild(buildProjectCardPreview(project)));
+  rest.forEach(project => list.appendChild(buildProjectCardPreview(project, { blurred: true })));
 }
 
 function renderCertifications(certs) {
@@ -227,6 +245,13 @@ async function init() {
   renderEducation(education);
   renderSkills(skills);
   renderContact(contact);
+
+  // The browser's native hash-scroll fires before these cards exist (they're
+  // rendered async above), so it silently no-ops. Do it manually once rendered.
+  if (window.location.hash) {
+    const target = document.getElementById(window.location.hash.slice(1));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
 
 init().catch(err => {

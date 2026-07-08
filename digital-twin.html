@@ -12,7 +12,7 @@
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="index.html#top" class="site-name">Tyler Dunnic</a>
+    <a href="index.html#top" class="site-name">Portfolio</a>
     <nav class="site-nav" aria-label="Primary">
       <a href="index.html#about">About</a>
       <a href="index.html#experience">Experience</a>
@@ -44,7 +44,7 @@
       <div class="notice warn">
         <strong>This is illustrative, not real production data.</strong> The station layout, timing, and event data are
         generic/fictionalized — inspired by manufacturing internship experience with automated lines, but not a
-        reproduction of any employer's actual process. Built to learn Three.js and real-time 3D web programming.
+        reproduction of any employer's actual process. Built to demonstrate real-time 3D web programming and applied data visualization.
       </div>
 
       <div id="twin-stage">
@@ -118,6 +118,16 @@
         Fixtures spawn every ~4 seconds and travel through 12 stations. Two fixtures (FX-004, FX-012) are
         pre-designated to fail functional test on the first pass, triggering a line stop until they clear retest —
         watch the KPI bar and event log react in real time.
+      </p>
+
+      <h3 class="subsection-title" style="margin-top: var(--space-6);">How It Works</h3>
+      <p class="section-subtitle" style="margin-bottom: 0;">
+        RFID tags are applied to each product at the head of the line, and sensors positioned at intervals down the
+        line capture its progress, timestamping every station transition. Additional sensors detect when the line
+        stops, identify which station triggered the stop — since each stop button is mapped to its station — and
+        measure how long it stayed down. In a production deployment, this same event stream (RFID reads, station
+        timestamps, stop/start events) could feed directly into a SQL database, giving engineering and quality teams
+        a full, queryable history of line performance rather than a point-in-time snapshot.
       </p>
     </div>
   </section>

@@ -401,8 +401,10 @@ ul { list-style: none; }
   margin-bottom: var(--space-2);
 }
 
-.demo-launch-btn {
-  display: inline-block;
+.project-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
   margin: var(--space-2) 0 var(--space-5);
 }
 
@@ -478,6 +480,18 @@ ul { list-style: none; }
   color: var(--color-text);
 }
 .project-card--preview:hover { text-decoration: none; }
+
+.project-card--preview.is-blurred {
+  filter: blur(3px);
+  opacity: 0.55;
+  pointer-events: none;
+  user-select: none;
+}
+.project-card--preview.is-blurred:hover {
+  transform: none;
+  box-shadow: var(--shadow-sm);
+  border-color: var(--color-border);
+}
 
 .project-card--preview h3 { color: var(--color-text); }
 
